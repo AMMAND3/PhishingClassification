@@ -1,0 +1,17 @@
+{% extends "layout.html" %} {% block content %}
+<h1>Phishing Classifier</h1>
+<form action="/predict" method="post" class="mt-3">
+  <div class="form-group">
+    <label for="message">Enter Message:</label>
+    <textarea name="message" id="message" class="form-control" rows="5">
+{{ message or '' }}</textarea
+    >
+  </div>
+  <button type="submit" class="btn btn-primary">Predict</button>
+</form>
+{% if prediction is not none %}
+<div class="mt-4">
+  <h3>Prediction:</h3>
+  <p class="lead">{{ prediction }}</p>
+</div>
+{% endif %} {% endblock %}
